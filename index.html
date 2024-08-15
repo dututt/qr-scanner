@@ -58,14 +58,15 @@
         }
     </script>
     <hr/>
-    <p>Clicking the button generates a QR code containing the user input.</p>
-    <div>
-        <label for="user-input">Enter QR code data: </label><input type="text" id="user-input"/>
-        <button id="btn">Generate QR code!</button>
-    </div>
+    
+    
     <main>
-        <n/>
-        <div id="qrcode-container" ></div>
+        <div>
+            <p>Clicking the button generates a QR code containing the user input.</p>
+            <label for="user-input">Enter QR code data: </label><input type="text" id="user-input"/>
+            <button id="btn">Generate QR code!</button>
+            <div id="qrcode-container" ></div>
+        </div>
     </main>
 <script>
     document.getElementById('btn').addEventListener('click', createQRCode);
