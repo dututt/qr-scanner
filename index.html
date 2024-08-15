@@ -10,8 +10,8 @@
 
 <body data-rsssl=1>
 
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.4/html5-qrcode.min.js" integrity="sha512-k/KAe4Yff9EUdYI5/IAHlwUswqeipP+Cp5qnrsUjTPCgl51La2/JhyyjNciztD7mWNKLSXci48m7cctATKfLlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-    <script src="./node_modules/html5-qrcode/html5-qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5-qrcode/2.3.4/html5-qrcode.min.js" integrity="sha512-k/KAe4Yff9EUdYI5/IAHlwUswqeipP+Cp5qnrsUjTPCgl51La2/JhyyjNciztD7mWNKLSXci48m7cctATKfLlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
         main {
             display: flex;
@@ -26,6 +26,10 @@
         #result {
             text-align: center;
             font-size: 1.5rem;
+        }
+
+        #qrcode-container {
+            padding-top: 2rem;
         }
     </style>
     <main>
@@ -53,6 +57,25 @@
             console.error(err);
         }
     </script>
+    <hr/>
+    <p>Clicking the button generates a QR code containing the user input.</p>
+    <div>
+        <label for="user-input">Enter QR code data: </label><input type="text" id="user-input"/>
+        <button id="btn">Generate QR code!</button>
+    </div>
+    <main>
+        <n/>
+        <div id="qrcode-container" ></div>
+    </main>
+<script>
+    document.getElementById('btn').addEventListener('click', createQRCode);
+    function createQRCode() {
+        const QRContainer = document.getElementById("qrcode-container");
+        QRContainer.innerHTML = "";
+        const text = document.getElementById('user-input').value;
+        new QRCode(QRContainer, "https://dututt.github.io/cafe/#" + text);
+    }
+</script>
 
 </body>
 
